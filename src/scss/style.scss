@@ -48,9 +48,147 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 	url('fonts/icomoon.ttf')  format('truetype');
 }
 
-//colors
+//Colors
+$color-white: #FFF;
+$color-black: #000;
+$charcoal: #333;
+$darkgray: #5c5b5c;
+$orange: #db7c00;
+
+//Type
+$type-basic: 'Lato', sans-serif;
+
 body {
-	background: red;  
+	background: blue;
+	//position: relative;
+	font-family: $type-basic;
+}
+
+#wrapper {
+	position: relative;
+}
+
+#header {
+	background-color: $color-white;
+
+}
+
+#ft-utility {
+	height: 50px;
+	background: $darkgray;
+	color: $color-white;
+
+	a {
+		color: $color-white;
+	}
+
+	#menu-toggle {
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	float: right;
+	background-color: blue;
+	}
+}
+
+#site-title h1 a {
+	background: url('images/logo.png') center center no-repeat;;
+	width: 175px;
+	height: 81px;
+	display: inline-block;
+	text-indent: -9999px;
+}
+
+#site-description, #search {
+	display: none;
+}
+
+#branding {
+		padding: 30px;
+}
+
+
+
+.menu {
+display: none;
+
+li {
+	display: block;
+}
+	
+	a {
+  		font-size: 22px;
+  		font-family: "Aller";
+  		color: $charcoal;
+  		font-weight: 300;
+  		text-decoration: none;
+  		display: inline-block;
+  		transition: .3s all;
+	}
+}
+
+.mobile-menu {
+	background: $darkgray;
+	text-align: center;
+	display: none;
+	position: absolute;
+	top: 50px;
+	right: 0;
+	opacity: 0;
+	min-height: 0;
+	overflow: hidden;
+	width: 80%;
+	min-width: 320px;
+	transition: .3s heihgt, .8s opacity;
+	z-index: 2;
+
+	li {
+		display: block;
+	}
+
+	a {
+		color: $color-white;
+		line-height: 50px;
+		width: 100%;
+		border-bottom: 1px solid rgba($color-black, .1);
+
+		&:hover {
+			background: rgba($color-black, .1);
+		}
+	}
+
+	body.mobile-menu-active & {
+		display: inline-block;
+		opacity: 1;
+		min-height: 2000px;
+
+	}
+}
+
+#footer {
+	background: $orange;
+	padding: 40px 0;
+
+	color: $color-white;
+
+	h2 {
+		display: inline-block;
+		width: 100%;
+		text-align: center;
+		padding: 5px 0;
+		font-weight: bold;
+		margin-bottom: 10px;
+	}
+
+	a {
+		color: $color-white;
+		display: inline-block;
+		width: 100%;
+		text-align: center;
+		padding: 5px 0;
+		font-weight: normal;
+		text-decoration: none
+	}
 }
 
 
