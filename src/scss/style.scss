@@ -29,6 +29,9 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
     @if $point == tablet {
         @media (min-width: 600px)  { @content; }
     }
+    @else if $point == landscape {
+        @media (min-width: 768px) { @content; }  
+    }
     @else if $point == desktop {
         @media (min-width: 1024px) { @content; }
     }
@@ -84,6 +87,19 @@ body {
 	color: $charcoal;
 	line-height: 24px;
 	text-align: center;
+
+	@include breakpoint(tablet) {
+		border: 1px solid green;
+	}
+
+	@include breakpoint(landscape) {
+		border: 1px solid yellow;
+	}
+
+	@include breakpoint(desktop) {
+		border: 1px solid red;
+	}
+
 }
 
 #wrapper {
@@ -100,7 +116,7 @@ body {
 	padding: 50px 0px;
 	width: 100%;
 
-	@include breakpoint(tablet) {
+	@include breakpoint(landscape) {
 		background: $darkblue url('images/mountain-bg.png') center center no-repeat;
 		background-size: cover;
 		padding: 50px 20px;
@@ -116,7 +132,7 @@ body {
 		left: 0;
 		display: none;
 
-		@include breakpoint(tablet) {
+		@include breakpoint(landscape) {
 			display: inline-block;
 		}
 	}
@@ -142,6 +158,10 @@ a {
 	max-width: 1180px;
 	margin: 0 auto;
 	position: relative;
+
+		@include breakpoint(landscape) {
+			padding: 0 20px;  
+		}
 }
 
 #ft-utility {
@@ -296,6 +316,7 @@ a {
 	position: relative;
 	overflow: hidden;
 	padding-bottom: (62/380) * 100%;
+	max-height: 235px;
 }
 
 .mountain-range {
@@ -380,6 +401,10 @@ a {
 	color: $color-white;
 	position: relative;
 
+	#copyright {
+		padding: 0 20px;
+	}
+
 	&:after {
 		content: '';
 		@include linearGradient(transparent, rgba(#000, .15));
@@ -398,6 +423,11 @@ a {
 		margin-bottom: 10px;
 		font-size: 18px;
 		font-family: $type-header;
+
+		@include breakpoint(landscape) {
+			width: auto;
+			margin: 0 5px;
+		}
 	}
 
 	a, span {
@@ -408,6 +438,22 @@ a {
 		padding: 0px 0;
 		text-decoration: none;
 		font-size: 16px;
+
+
+		@include breakpoint(tablet) {
+			width: auto;
+			margin: 0 5px;
+		}
+	}
+
+	a {
+		cursor: pointer;
+		transition: .3s all;
+
+
+		&:hover {
+			opacity: .8;
+		}
 	}
 }
 
@@ -453,10 +499,12 @@ a {
 		background: $darkblue url('images/mountain-bg.png') center center no-repeat;
 		background-size: cover;
 		position: relative;
+		overflow: auto;
 
-		@include breakpoint(tablet) {
+		@include breakpoint(landscape) {
 			background: transparent;
 			border-bottom: 1px solid $color-white;
+		padding: $margin-control 0px 0;  
 		}
 
 		&:after {
@@ -467,9 +515,9 @@ a {
 			width: 100%;
 			top: 0;
 			left: 0;
-			display: inline-block;
+			display: inline-block; 
 
-			@include breakpoint(tablet) {
+			@include breakpoint(landscape) {
 				display: none;
 			}
 		}
@@ -478,6 +526,20 @@ a {
 	.mission-statement {
 		position: relative;
 		z-index: 1;
+		display: inline-block;
+		width: 100%;
+
+		@include breakpoint(landscape) {
+			width: 100%;
+			float: left;
+			padding-right: 50%;
+		}
+
+		@include breakpoint(desktop) {
+			width: 100%;
+			float: left;
+			padding-right: 40%;
+		}
 
 		p {
 			font-size: 18px;
@@ -487,7 +549,7 @@ a {
 			text-align: center;
 			text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
 
-			@include breakpoint(tablet) {
+			@include breakpoint(landscape) {
 				font-size: 22px;
 				line-height: 28px;
 			}
@@ -496,6 +558,33 @@ a {
 
 	.call-to-action {
 		text-align: center;
+		display: inline-block;
+		width: 100%;
+		position: relative;
+		text-align: center;
+		z-index: 2;
+
+		@include breakpoint(landscape) {
+			width: 50%;
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%) translateX(-50%);
+			left: 75%;
+		}
+
+		@include breakpoint(desktop) {
+			width: 40%;
+			left: 80%;
+		}
+
+		.button {
+
+			@include breakpoint(landscape) {
+				margin-bottom: 0;
+				width: auto;
+			}
+
+		}
 	}
 
 	.recruit {
@@ -507,7 +596,7 @@ a {
 			display: inline-block;
 			text-align: center;
 
-			@include breakpoint(tablet) {
+			@include breakpoint(landscape) {
 				width: 50%;
 				float: left;
 			}
@@ -526,12 +615,19 @@ a {
 		background-color: $orange;
 		padding: $margin-control 20px 0;
 
-		@include breakpoint(tablet) {
+		@include breakpoint(landscape) {
 			background: transparent;
 		}
 
 		.button {
-			width: 40%;
+
+			@include breakpoint(tablet) {
+				width: 40%;
+				margin: 0 5%;
+				float: left;
+				clear: initial;
+				margin-bottom: 30px;
+			}
 		}
 	}
 
@@ -539,7 +635,7 @@ a {
 		background-color: $color-white;
 		color: $charcoal;
 
-		@include breakpoint(tablet) {
+		@include breakpoint(landscape) {
 			background: transparent;
 			padding: $margin-control 20px;
 		}
@@ -567,7 +663,8 @@ a {
 		@include breakpoint(tablet) {
 			width: 50%;
 			float: left;
-			background: rgba($color-white, .5);
+					@include linearGradient(rgba(#000, .025), transparent);
+
 		}
 
 		&:nth-child(even) {
@@ -600,18 +697,22 @@ a {
 			position: absolute;
 			content: '';
 			pointer-events: none;
+
+			@include breakpoint(tablet) {
+				display: none;
+			}
 		}
 
 		&:hover {
 
-			@include breakpoint(tablet) {
+			@include breakpoint(landscape) {
 				background-color: $orange;
 			}
 		}
 
 		&.marketing {
 
-			@include breakpoint(tablet) {
+			@include breakpoint(landscape) {
 				border-top-left-radius: 100%;
 				border-right: .5px solid rgba($color-black, .1);
 				border-bottom: .5px solid rgba($color-black, .1);
@@ -620,7 +721,7 @@ a {
 
 		&.meaning {
 
-			@include breakpoint(tablet) {
+			@include breakpoint(landscape) {
 				border-top-right-radius: 100%;
 				border-left: .5px solid rgba($color-black, .1);
 				border-bottom: .5px solid rgba($color-black, .1);
@@ -629,7 +730,7 @@ a {
 
 		&.mental-health {
 
-			@include breakpoint(tablet) {
+			@include breakpoint(landscape) {
 				border-bottom-left-radius: 100%;
 				border-right: .5px solid rgba($color-black, .1);
 				border-top: .5px solid rgba($color-black, .1);
@@ -638,7 +739,7 @@ a {
 
 		&.money {
 
-			@include breakpoint(tablet) {
+			@include breakpoint(landscape) {
 				border-bottom-right-radius: 100%;
 				border-left: .5px solid rgba($color-black, .1);
 				border-top: .5px solid rgba($color-black, .1); 
