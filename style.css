@@ -365,7 +365,8 @@ a {
 .home .button {
   margin: 0 auto 40px;
   clear: both;
-  width: 75%; }
+  width: 75%;
+  max-width: 400px; }
 .home .mission {
   padding: 40px 20px 0;
   background: #11255a url('images/mountain-bg.png') center center no-repeat;
@@ -441,6 +442,8 @@ a {
   @media (min-width: 600px) {
     .home .recruit-1 {
       background: transparent; } }
+  .home .recruit-1 .button {
+    width: 40%; }
 .home .recruit-2 {
   background-color: #FFF;
   color: #333; }
