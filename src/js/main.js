@@ -7,14 +7,17 @@ $(document).ready(function() {
 		$('body').toggleClass('mobile-menu-active');
 	});
 
-	$('.slider').slick({
-		adaptiveHeight: true,
+	$('.slider .xoxo').slick({
+		adaptiveHeight: false,
 		dots: true,
 		arrows: false,
 		customPaging : function(slider, i) {
         	return '<span class="slick-dot"></span>';
     	},
+    	pauseOnHover: true,
+    	pauseOnDotsHover:  true,
     	fade: true,
+    	autoplay: true,
     	mobileFirst: true,
     	prevArrow: '<div class="prev-arrow"></div>',
     	nextArrow: '<div class="next-arrow"></div>',
