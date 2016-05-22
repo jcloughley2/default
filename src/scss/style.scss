@@ -824,12 +824,14 @@ padding:0;
 			width: 50%;
 			float: left;
 			padding-bottom: 45px;
+			width: 100%;
 		}
 
 		@include breakpoint(desktop) {
 			width: 60%;
 			padding-right: 0;
 			border-bottom: 0;
+			width: 100%;
 		}
 
 		p {
@@ -855,6 +857,8 @@ padding:0;
 		position: relative;
 		text-align: center;
 		z-index: 2;
+
+		display: none !important; //post edit
 
 		@include breakpoint(landscape) {
 			width: 50%;
@@ -887,7 +891,8 @@ padding:0;
 
 		@include breakpoint(desktop) {
 			padding: 55px 20px;
-			position: relative;
+			//position: relative;
+			position: static;
 		}
 
 		>div {
@@ -923,6 +928,8 @@ padding:0;
 		width: 100%;
 		display: inline-block;
 		text-align: center;
+
+		display: none !important; //post edit
 
 		@include breakpoint(landscape) {
 			background: transparent;
@@ -992,6 +999,7 @@ padding:0;
 			padding: 0;
 			background: transparent;
 			height: 590px;
+			width: 100%;
 		}
 
 		h3 {
@@ -1221,8 +1229,8 @@ padding:0;
 
 				@include breakpoint(desktop) {
 					position: absolute;
-					top: 40%;
-					left: 50%;
+					top: 45%;
+					left: 55%;
 					transform: translateY(-50%) translateX(-50%);
 					-ms-transform: translateY(-50%) translateX(-50%);
 					-webkit-transform: translateY(-50%) translateX(-50%);
@@ -1793,10 +1801,14 @@ padding:0;
 	@include breakpoint(desktop) {
 		background: transparent;
 		position: absolute;
-		bottom: 20px;
-		left: 20px;
+		//bottom: 20px;
+		//left: 20px;
 		text-align: center;
-		width: 35%;
+		//width: 35%;
+		width: auto;
+		top: 0;
+		right: 0;
+		padding: 0 20px;
 	}
 
 	a {
@@ -1947,11 +1959,26 @@ padding:0;
 	border-bottom: 1px solid #DDD;
 }
 
+.alignleft {
+	width: 100%;
+	height: auto;
+	margin: 0 0 20px 0;
 
+	@include breakpoint(tablet) {
+		float: left;
+		width: 175px;
+		margin: 0 20px 20px 0;
+	}
+}
 
+.alignright {
+	width: 100%;
+	height: auto;
+	margin: 0 0 20px 0;
 
-
-
-
-
-
+	@include breakpoint(tablet) {
+		float: right;
+		width: 175px;
+		margin: 0 0px 20px 20px;
+	}
+}
